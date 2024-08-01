@@ -1,0 +1,308 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(0, 140, 255);
+    color: #333;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* VARIABLES */
+
+:root {
+    --primary-bg-color: #d3d3d3;
+
+    --button-bg-color: #28a745;
+    --button-hover-color: #218838;
+    --button-active-color: #1e7e34;
+
+    --button-clear-bg-color: #dc3545;
+    --button-clear-hover-color: #c82333;
+    --button-clear-active-color: #bd2130;
+
+    --button-text-color: white;
+
+    --scrollbar-bg: #f1f1f1;
+    --scrollbar-thumb: #888;
+    --scrollbar-thumb-hover: #555;
+}
+
+/* HEADER */
+
+header {
+    background-color: var(--primary-bg-color);
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 1rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    align-items: center;
+}
+
+header input {
+    flex-grow: 1;
+    height: 3rem;
+    min-width: 150px;
+    border: none;
+    border-radius: 10px;
+    padding: 0 1rem;
+    overflow: auto;
+    white-space: nowrap;
+    margin-right: 1rem;
+    font-size: 0.8rem;
+}
+
+header button {
+    height: 3rem;
+    width: 20%;
+    min-width: 3rem;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    font-size: 1.25rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+header button:hover {
+    background-color: var(--button-hover-color);
+}
+
+header button:active {
+    background-color: var(--button-active-color);
+}
+
+header button:focus {
+    outline: 2px solid var(--button-active-color);
+    outline-offset: 2px;
+}
+
+/* MAIN */
+
+main {
+    background-color: var(--primary-bg-color);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+main button {
+    height: 2rem;
+    width: 20%;
+    min-width: 5rem;
+    background-color: var(--button-clear-bg-color);
+    color: var(--button-text-color);
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+main button:hover {
+    background-color: var(--button-clear-hover-color);
+}
+
+main button:active {
+    background-color: var(--button-clear-active-color);
+}
+
+main button:focus {
+    outline: 2px solid var(--button-clear-active-color);
+    outline-offset: 2px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    max-height: 215px;
+    overflow-y: auto;
+}
+
+/* Scrollbar Styling for WebKit (Chrome, Safari) */
+ul::-webkit-scrollbar {
+    width: 6px;
+}
+
+ul::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);
+    margin: 0.5rem 0;
+    border-radius: 5px;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 5px;
+}
+
+ul::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+li {
+    background-color: #fff;
+    padding: 0 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0.5rem 0.1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li span {
+    margin: 0 0.5rem;
+    font-size: 0.8rem;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+li span::-webkit-scrollbar {
+    height: 3px;
+    background-color: var(--scrollbar-bg);
+}
+
+li span::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 5px;
+}
+
+li span::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+}
+
+li.completed span {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.delete-btn {
+    background-color: transparent;
+    color: var(--button-clear-bg-color);
+    border: none;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: var(--button-clear-bg-color);
+    color: white;
+}
+
+#task-counter {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+@media (min-width: 481px) {
+    header input {
+        font-size: 1rem;
+    }
+
+    ul {
+        max-height: 250px;
+    }
+
+    li span {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 769px) {
+    main h2{
+        font-size: 1.75rem;
+    }
+
+    li span {
+        font-size: 1rem;
+    }
+
+    .delete-btn{
+        font-size: 0.8rem;
+    }
+
+    #task-counter{
+        font-size: 1rem;
+        margin-top: 0.75rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    body{
+        width: 60%;
+    }
+
+    header {
+        margin: 3rem 0 1.5rem;
+    }
+
+    ul{
+        max-height: 420px;
+    }
+}
+
+@media (min-width: 1201px) {
+    header{
+        height: 5.5rem;
+        margin: 4rem 0 2rem 0;
+    }
+
+    header input{
+        height: 4rem;
+        font-size: 1.5rem;
+    }
+
+    header button {
+        height: 4rem;
+        font-size: 2rem;
+    }
+
+    main h2{
+        font-size: 2rem;
+    }
+
+    main button{
+        height: 2.5rem;
+        font-size: 1.25rem;
+    }
+
+    ul{
+        max-height: 355px;
+    }
+
+    li span{
+        font-size: 1.25rem;
+    }
+
+    .delete-btn{
+        font-size: 1rem;
+    }
+
+    #task-counter{
+        font-size: 1.25rem;
+    }
+}
